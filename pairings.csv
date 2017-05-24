@@ -1,0 +1,16 @@
+Contrast;Axis;Context;CVC1;CVC2;sampa1;sampa2;midV1pos;midV2pos
+i-I;i-I-E;k_p;Kiep;Kip;kip;kIp;;
+I-E;i-I-E;k_p;Kip;Cap;kIp;kEp;;
+i-I;i-I-E;k_n;Kien;Kin;kin;kIn;;
+I-E;i-I-E;k_n;Kin;Ken;kIn;kEn;;
+i-I;i-I-E;p_p;Piep;Pip;pip;pIp;;
+I-E;i-I-E;p_p;Pip;Pep;pIp;pEp;;
+Y-E;Y-E;k_p;Cup;Cap;kYp;kEp;;
+Y-E;Y-E;k_n;Kun;Ken;kYn;kEn;;
+Y-E;Y-E;p_p;Pup;Pep;pYp;pEp;;
+u-O;u-O-A;k_n;Koen;Kon;kun;kOn;;
+O-A;u-O-A;k_n;Kon;Kan;kOn;kAn;;
+u-O;u-O-A;k_p;Coup;Kop;kup;kOp;;
+O-A;u-O-A;k_p;Kop;Kap;kOp;kAp;;
+u-O;u-O-A;p_p;Poep;Pop;pup;pOp;;
+O-A;u-O-A;p_p;Pop;Pap;pOp;pAp;;
