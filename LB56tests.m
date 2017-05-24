@@ -10,7 +10,7 @@
 % - Verify get_formants.m / get_formants.py 
 
 
-addpath('~/work/lib/UMCG/matlab/fmanipulation');
+addpath('~/work/lib/UMCG/LB2017/matlab/fmanipulation');
 
 straight_path = '~/work/lib/UMCG/STRAIGHT/';
 pyPraat_path  = '~/work/lib/UMCG/matlab/pyPraat/';

@@ -16,8 +16,12 @@ end
 logfile = 'log-soundprocessing-basesounds.csv';
 %csvsep = ';';
 logid = fopen(logfile, 'w');
-fprintf(logid, '%s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s\n', 'output', 'startpoint', 'endpoint', 'numContinuum', 'startF1', 'endF1', 'targetF1', 'zF1', 'stF1', 'startF2', 'endF2', 'targetF2', 'zF2', 'stF2');
 
+if (keepF>2)
+    fprintf(logid, '%s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s\n', 'output', 'startpoint', 'endpoint', 'numContinuum', 'startF1', 'endF1', 'targetF1', 'zF1', 'stF1', 'startF2', 'endF2', 'targetF2', 'zF2', 'stF2', 'startF3', 'endF3', 'targetF3', 'zF3', 'stF3');
+else
+    fprintf(logid, '%s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s\n', 'output', 'startpoint', 'endpoint', 'numContinuum', 'startF1', 'endF1', 'targetF1', 'zF1', 'stF1', 'startF2', 'endF2', 'targetF2', 'zF2', 'stF2');
+end
 
 addpath('~/work/lib/UMCG/matlab/fmanipulation');
 
@@ -48,6 +52,7 @@ addpath(pyPraat_path);
 
 
 % Declare speakers' names (soundfile prefixes)
+%speakers = {'Sem', 'Britt'};
 speakers = {'Sem'};
 
 % Load main stimulus file
@@ -268,7 +273,7 @@ for s = 1:length(speakers) % For each speaker
                     lcomp = setxor(l, 1:2);
                     stimstart = stim{l};
                     stimend = stim{lcomp};
-                    stimseq = {stimstart, stimend}
+                    stimseq = {stimstart, stimend};
                     if (debug == 1)
                         ['Start: ', stimstart, ' End: ', stimend]
                     end
@@ -342,9 +347,9 @@ for s = 1:length(speakers) % For each speaker
                         
                         %fprintf(logid, '%s ; %s ; %s ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.0f, %2.0f ; %2.0f\n', output, stimseq{1}, stimseq{2}, m-1, tfreqs(1, 1), tfreqs(1, end), tfreqs(1, m), p.DF1, tfreqs(2, 1), tfreqs(2, end), tfreqs(2, m), p.DF2);
                         if (keepF == 2)
-                            savelog = sprintf('%s ; %s ; %s ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.3f ; %2.3f ; %2.0f ; %2.0f, %2.0f ; %2.3f ; %2.3f\n', output, stimstart, stimend, m-1, tfreqs(1, 1), tfreqs(1, end), tfreqs(1, m), coords(1, m), p.DF1, tfreqs(2, 1), tfreqs(2, end), tfreqs(2, m), coords(2, m), p.DF2);
+                            savelog = sprintf('%s ; %s ; %s ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.3f ; %2.3f ; %2.0f ; %2.0f ; %2.0f ; %2.3f ; %2.3f\n', output, stimstart, stimend, m-1, tfreqs(1, 1), tfreqs(1, end), tfreqs(1, m), coords(1, m), p.DF1, tfreqs(2, 1), tfreqs(2, end), tfreqs(2, m), coords(2, m), p.DF2);
                         else
-                            savelog = sprintf('%s ; %s ; %s ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.3f ; %2.3f ; %2.0f ; %2.0f, %2.0f ; %2.3f ; %2.3f\n', output, stimstart, stimend, m-1, tfreqs(1, 1), tfreqs(1, end), tfreqs(1, m), coords(1, m), p.DF1, tfreqs(2, 1), tfreqs(2, end), tfreqs(2, m), coords(2, m), p.DF2, tfreqs(3, 1), tfreqs(3, end), tfreqs(3, m), coords(3, m), p.DF3);
+                            savelog = sprintf('%s ; %s ; %s ; %2.0f ; %2.0f ; %2.0f ; %2.0f ; %2.3f ; %2.3f ; %2.0f ; %2.0f ; %2.0f ; %2.3f ; %2.3f ; %2.0f ; %2.0f, %2.0f ; %2.3f ; %2.3f\n', output, stimstart, stimend, m-1, tfreqs(1, 1), tfreqs(1, end), tfreqs(1, m), coords(1, m), p.DF1, tfreqs(2, 1), tfreqs(2, end), tfreqs(2, m), coords(2, m), p.DF2, tfreqs(3, 1), tfreqs(3, end), tfreqs(3, m), coords(3, m), p.DF3);
                         end
 
                         fprintf(logid, '%s', savelog);
